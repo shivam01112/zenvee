@@ -5010,6 +5010,11 @@ button.mfp-arrow {
       align-items: center;
   margin-top: 20px;
 }
+.footer-about img {
+    max-width: 150px;
+    margin-bottom: 20px;
+}           
+
 .footer-about-social-list a {
   display: -webkit-box;
   display: -ms-flexbox;
