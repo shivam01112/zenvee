@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <title>Zenvee</title>
+    <meta name="description" content="THE CAPPA is a modern, elegant HTML template for luxury hotels, resorts, and vacation rentals. Fully responsive, customizable, and perfect for hospitality websites.">
+    <meta name="author" content="THE CAPPA Luxury Hotel Template by DuruThemes">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="img/main-img/fav-zenvee.png" type="image/png" sizes="32x32">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../../../../css2?family=Barlow+Condensed:wght@300;400&family=Barlow:wght@400&family=Gilda+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/plugins.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+   
+        .catalog-container {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .main-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .catalog-layout {
+            display: flex;
+            min-height: 80vh;
+        }
+
+        /* Left Sidebar Styles */
+        .sidebar {
+            width: 320px;
+            background: linear-gradient(106deg, #eea815 -13%, #1b1b1aff 5%, #eea815 100%);
+            padding: 30px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        .category-section {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0px;
+        }
+
+        .category-item {
+            margin-bottom: 8px;
+        }
+
+        .category-link {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+        }
+
+        .category-link:hover, .category-link.active-category {
+            background: rgb(30 32 35 / 58%);
+    color: white;
+    border-left-color: #fdbb2e;
+    transform: translateX(8px);
+    width: 100%;
+        }
+
+        .filter-section {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 30px;
+            padding: 0 30px;
+        }
+
+        .filter-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .filter-checkbox {
+            margin-right: 10px;
+            transform: scale(1.2);
+            accent-color: #ffd700;
+        }
+
+        .filter-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .search-container {
+            position: relative;
+            z-index: 1;
+            padding: 0 30px;
+        }
+
+        .search-box {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            background: white;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ffd700;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-button:hover {
+            background: #ffed4e;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background: #ffffff;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image-container {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+
+        /* .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(201, 177, 118, 0.366), rgb(218 186 116 / 50%));
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        } */
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .product-details {
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-btn {
+              /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    color: #D7B56D;
+    border: none;
+    padding: 6px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    border: 1px solid #D7B56D;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+        
+
+        .product-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            color: white;
+            background-color: #D7B56D;
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #D7B56D;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin: 0;
+        }
+
+        .results-info {
+            color: #666;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .catalog-layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 20px 0;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .category-section, .filter-section, .search-container {
+                padding: 0 20px;
+            }
+
+            .page-title {
+                font-size: 24px;
+            }
+
+            .content-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .catalog-container {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+   
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo-wrapper">
+                <a class="logo" href="index.html"> <img src="img/main-img/zenvee-logo.png" class="logo-img" alt=""> </a>
+                <!-- <a class="logo" href="index.html"> <h2>THE CAPPA <span>Luxury Hotel</span></h2> </a> -->
+            </div>
+            <!-- Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="ti-menu"></i></span> </button>
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown"> <a class="nav-link active dropdown-toggle" href="index.html" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Home </i></a>
+                     
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                     <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Products <i class="ti-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="personal-hygiene-kits.html" class="dropdown-item"><span>Personal Hygiene Kits
+</span></a></li>
+                            <li><a href="utility-grooming-kits.html" class="dropdown-item"><span>Utility & Grooming Kits
+</span></a></li>
+                            <li><a href="room-bathroom-use-items.html" class="dropdown-item"><span>Room Bathroom Use Items
+</span></a></li>
+                           
+
+                        </ul>
+                    </li>
+                       <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                         
+                             <li class="nav-item"><a class="nav-link" href="index.html#why-us-section">Why Zenvee</a></li>   
+                              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+ 
+    <!-- Header Banner -->
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="3" data-background="img/main-img/banner-w.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-left caption mt-90">
+                    <h5>Products</h5>
+                    <h1>Personal Hygiene Kits</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact -->
+ 
+    <!-- Reservation & Booking Form -->
+
+<section class="catalog-container">
+    <div class="main-wrapper">
+        <div class="catalog-layout">
+            <!-- Left Sidebar -->
+            <aside class="sidebar">
+                <div class="category-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-list"></i> Categories
+                    </h3>
+                <ul class="category-list">
+  <li class="category-item">
+    <a href="#" class="category-link active-category">Shampoo</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Conditioner</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Shower Gel</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Body Lotion</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Lip Balm</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Soap</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Dental Kit (Toothbrush + Toothpaste)</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Shaving Kit (Razor + Shaving Cream sachet or soap)</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Comb</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Nail Filer / Emery Board</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Cotton Pads</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Tongue Cleaner</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Shoe Shine Strip / Sponge / Shoe Mitt</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Loofah / Bath Scrub Pad / Natural Loofah</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Toilet Roll</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Facial Tissues With Leather Box</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Wet Wipes (Individually packed)</a>
+  </li>
+  <li class="category-item">
+    <a href="#" class="category-link">Hand Sanitizer Sachet or Wipe</a>
+  </li>
+</ul>
+
+                </div>
+
+              
+
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="content-header">
+                    <h1 class="page-title">Shampoo Collection</h1>
+                    <span class="results-info">16 Products Found</span>
+                </div>
+
+                <div class="products-grid">
+                  
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/main-img/shampoo-1.jpg" alt="Modern Shampoo" class="product-image">
+                            <div class="product-overlay">
+                                <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <h4 class="product-title">Modern Shampoo</h4>
+                            <a href="details.html" class="product-btn">
+                                Contact Us <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/main-img/shampoo-@.jpg" alt="Classic Shampoo" class="product-image">
+                            <div class="product-overlay">
+                                <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <h4 class="product-title">Charcoal Shampoo</h4>
+                            <a href="details.html" class="product-btn">
+                                Contact Us <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                     <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/main-img/shampoo-2.jpg" alt="Classic Shampoo" class="product-image">
+                            <div class="product-overlay">
+                                <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <h4 class="product-title">Classic Shampoo</h4>
+                            <a href="details.html" class="product-btn">
+                                Contact Us <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                      <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/main-img/shampoo-1.jpg" alt="Modern Shampoo" class="product-image">
+                            <div class="product-overlay">
+                                <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <h4 class="product-title">Modern Shampoo</h4>
+                            <a href="details.html" class="product-btn">
+                                Contact Us <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/main-img/shampoo-@.jpg" alt="Classic Shampoo" class="product-image">
+                            <div class="product-overlay">
+                                <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <h4 class="product-title">Charcoal Shampoo</h4>
+                            <a href="details.html" class="product-btn">
+                                Contact Us <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                     <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/main-img/shampoo-2.jpg" alt="Classic Shampoo" class="product-image">
+                            <div class="product-overlay">
+                                <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <h4 class="product-title">Classic Shampoo</h4>
+                            <a href="details.html" class="product-btn">
+                                Contact Us <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                      <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/main-img/shampoo-1.jpg" alt="Modern Shampoo" class="product-image">
+                            <div class="product-overlay">
+                                <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <h4 class="product-title">Modern Shampoo</h4>
+                            <a href="details.html" class="product-btn">
+                                Contact Us <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/main-img/shampoo-@.jpg" alt="Classic Shampoo" class="product-image">
+                            <div class="product-overlay">
+                                <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <h4 class="product-title">Charcoal Shampoo</h4>
+                            <a href="details.html" class="product-btn">
+                                Contact Us <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                     <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/main-img/shampoo-2.jpg" alt="Classic Shampoo" class="product-image">
+                            <div class="product-overlay">
+                                <i class="fas fa-eye" style="color: white; font-size: 24px;"></i>
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <h4 class="product-title">Classic Shampoo</h4>
+                            <a href="details.html" class="product-btn">
+                                Contact Us <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                  
+                   
+                </div>
+            </main>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Clients -->
+   
+    <!-- Footer -->
+       <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="footer-column footer-about">
+                            <h3 class="footer-title">About Zenvee</h3>
+                            <p class="footer-about-text">At Zenvee, we believe that true hospitality lies in the details — and we’ve been helping hotels get those details right since 2016.</p>
+
+                        
+                        </div>
+                    </div>
+                    <div class="col-md-3 offset-md-1">
+                        <div class="footer-column footer-explore clearfix">
+                            <h3 class="footer-title">Explore</h3>
+                            <ul class="footer-explore-list list-unstyled">
+                               <li><a href="index.html">Home</a></li>
+                                <li><a href="">Products</a></li>
+                                <li><a href="">Services</a></li>
+                                <li><a href="">Why Zenvee</a></li>
+                                <li><a href="about.html">About </a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-column footer-contact">
+                            <h3 class="footer-title">Contact</h3>
+                            <p class="footer-contact-text"> B115, G.T. Karnal Road, Industrial Area.<br> Delhi 110033</p>
+                            <div class="footer-contact-info">
+                                <p class="footer-contact-phone"><span class="flaticon-call"></span> <a href="tel:9868327944">9868327944</a></p>
+                                <p class="footer-contact-mail"><a href="mailto:info@zenveecare.com">info@zenveecare.com</a></p>
+                            </div>
+                            <div class="footer-about-social-list">
+                                <a href="#"><i class="ti-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                
+                                <a href="#"><i class="ti-facebook"></i></a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-bottom-inner">
+                            <p class="footer-bottom-copy-right">© Copyright 2025 by <a href="#">Zenvee</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<a
+  href="https://wa.me/919868327944"
+  class="wa-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chat on WhatsApp"
+>
+  <img src="img/main-img/whatsapp_12635043.png" alt="WhatsApp" class="wa-icon">
+</a>
+    <!-- jQuery -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-migrate-3.5.0.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/jquery.isotope.v3.0.2.js"></script>
+    <script src="js/pace.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scrollIt.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/YouTubePopUp.js"></script>
+    <script src="js/select2.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/smooth-scroll.min.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+</html>

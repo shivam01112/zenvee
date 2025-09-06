@@ -142,7 +142,7 @@ textarea {
     font-weight: 400;
     color: #666;
     background-image: none;
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid #908b66;
     border-color: ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 input:focus,
@@ -871,7 +871,7 @@ color: #DABA74;
     color: #DABA74;
 }
 .nav-scroll {
-    background: #fff;
+    background: #000000ec;
     padding: 0 0 0 0;
     position: fixed;
     top: -100px;
@@ -901,8 +901,11 @@ color: #DABA74;
     padding: 15px 0;
     color: #fff;
 }
+.nav-scroll .navbar-nav .nav-link {
+    color: #ffffff;
+}
 .nav-scroll .logo-img {
-    width: 102px;
+    width: 90px;
 }
 .nav-scroll .logo-img {
     margin-bottom: 0px;
@@ -992,7 +995,7 @@ color: #DABA74;
     font-family: 'Barlow', sans-serif;
     font-size: 15px;
     font-weight: 400;
-    color: #222;
+    color: #f4eedf;
     position: relative;
     -webkit-transition: all .4s;
     transition: all .4s;
@@ -1019,7 +1022,7 @@ color: #DABA74;
     box-shadow: 0 16px 50px rgb(0 0 0 / 7%);
 }
 .navbar .dropdown-menu li {
-    border-bottom: 1px solid #f4f4f4;
+    border-bottom: 1px solid #dcbe76;
 }
 .navbar .dropdown-menu li:last-child {
    border-bottom: none;
@@ -1032,18 +1035,20 @@ color: #DABA74;
 /* Navbar Media Query */
 @media screen and (min-width: 992px) {
     .navbar .dropdown-menu {
-        display: block;
+      display: block;
         opacity: 0;
         visibility: hidden;
         -webkit-transform: translateY(20px);
         transform: translateY(20px);
-        width: 190px;
+        width: 220px;
         padding: 15px;
         border-radius: 0;
         border: 0;
-        background-color: #fff;
+        background-color: #18181c;
         -webkit-transition: all .3s;
         transition: all .3s;
+        border: 1px solid #dcbe76;
+        border-radius: 12px;
     }
     .navbar .dropdown-menu .dropdown-menu {
         left: calc(100% + 5px);
@@ -5509,4 +5514,16 @@ select {
     transform: scale(2.2);
     opacity: 0;
   }
+}
+
+.contact-section-padding{
+    padding: 60px 0;
+         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+}
+.contact-section-padding .container{
+  padding: 39px;
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #e2cc87;
 }
